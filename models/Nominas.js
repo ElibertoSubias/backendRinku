@@ -33,6 +33,11 @@ const nominasSchema = new Schema({
         required: false,
         default: 0
     },
+    ISR: {
+        type: Number,
+        require: false,
+        default: 0
+    },
     puestoCubierto : {
         type: Number,
         required: false,
