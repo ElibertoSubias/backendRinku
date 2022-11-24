@@ -10,14 +10,14 @@ const app = express();
 conectarDB();
 
 // Habilitar Cors
+const opcionesCors = {
+    origin: process.env.FRONTEND_URL,
+    optionsSuccessStatus: 200
+}
 // const opcionesCors = {
-//     origin: 'https://sparkling-scone-4335d4.netlify.app',
+//     origin: 'nodesend-cliente-buqdh82mv-elibertosubias.vercel.app',
 //     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 //   }
-const opcionesCors = {
-    origin: 'nodesend-cliente-buqdh82mv-elibertosubias.vercel.app',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
 app.use(cors(opcionesCors));
 
 // Puerto de la app
@@ -34,6 +34,7 @@ app.use( express.static('uploads') );
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/empleados', require('./routes/empleados'));
 app.use('/api/configuracion', require('./routes/configuracion'));
+app.use('/api/nominas', require('./routes/nominas'));
 
 app.listen(port, '0.0.0.0', () => {
     console.log(process.env.FRONTEND_URL);
